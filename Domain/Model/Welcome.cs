@@ -1,6 +1,6 @@
 ﻿namespace Domain.Model
 {
-    public class Result
+    public class Welcome
     {
         public string Message { get; set; }
     }

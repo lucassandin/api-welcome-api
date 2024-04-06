@@ -37,7 +37,7 @@ namespace Test
             var result = 
                 _welcomeService.GetRandomWelcomeMessage();
 
-            Assert.IsType<Result>(result);
+            Assert.IsType<Welcome>(result);
             Assert.NotNull(result);
         }
     }

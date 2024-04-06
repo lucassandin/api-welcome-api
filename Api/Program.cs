@@ -6,6 +6,15 @@ namespace RandomWelcome
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        policy.AllowAnyOrigin();
+                    });
+            });
+
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -24,6 +33,10 @@ namespace RandomWelcome
 
             app.UseHttpsRedirection();
 
+            app.UseStaticFiles();
+            app.UseRouting();
+
+            app.UseCors();
             app.UseAuthorization();
 
             app.MapControllers();

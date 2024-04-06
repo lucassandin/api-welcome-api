@@ -8,6 +8,6 @@ namespace Domain.Service.Interface
         /// Get a random welcome message
         /// </summary>
         /// <returns></returns>
-        Result? GetRandomWelcomeMessage();
+        Welcome? GetRandomWelcomeMessage();
     }
 }

@@ -17,9 +17,9 @@ namespace RandomWelcome.Controllers
         }
 
         [HttpGet("/Random")]
-        [ProducesResponseType<Result>(StatusCodes.Status200OK)]
+        [ProducesResponseType<Welcome>(StatusCodes.Status200OK)]
         [ProducesResponseType<Error>(StatusCodes.Status400BadRequest)]
-        public ActionResult<Result> GetRandomWelcome()
+        public ActionResult<Welcome> GetRandomWelcome()
         {
             var message = 
                 _welcomeService.GetRandomWelcomeMessage();

@@ -16,7 +16,7 @@ namespace Domain.Service
                 ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public Result? GetRandomWelcomeMessage()
+        public Welcome? GetRandomWelcomeMessage()
         {
             _logger.LogInformation(
                 $"Obtendo boas vindas aleatória...");
@@ -34,7 +34,7 @@ namespace Domain.Service
             _logger.LogInformation(
                 "Mensagem de boas vindas: {Mensagem}", message);
 
-            return new Result
+            return new Welcome
             {
                 Message = message
             };
