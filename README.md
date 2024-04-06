@@ -9,7 +9,7 @@ Bem-vindo à Welcome API! Esta API foi desenvolvida em .NET 8 e possui o objetiv
 ## Tecnologias Utilizadas
 
 - **Linguagem de Programação:** C# (.NET 8)
-- **Framework:** ASP.NET Core
+- **Framework:** .NET 8
 - **Padrão de Arquitetura:** DDD (Domain-Driven Design)
 - **Princípios SOLID:** Aplicados
 - **Testes Unitários:** Implementados com xUnit
