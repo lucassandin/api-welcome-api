@@ -1,9 +1,9 @@
-﻿using Domain.Model;
-using Domain.Service.Interface;
-using Domain.Util;
+﻿using Domain.Util;
+using Domain.WelcomeContext.Interface;
+using Domain.WelcomeContext.Model;
 using Microsoft.Extensions.Logging;
 
-namespace Domain.Service
+namespace Domain.WelcomeContext.Service
 {
     public class WelcomeService : IWelcomeService
     {
@@ -12,7 +12,7 @@ namespace Domain.Service
         public WelcomeService(
             ILogger<WelcomeService> logger)
         {
-            _logger = logger 
+            _logger = logger
                 ?? throw new ArgumentNullException(nameof(logger));
         }
 

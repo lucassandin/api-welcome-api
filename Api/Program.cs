@@ -1,3 +1,6 @@
+using Domain.WelcomeContext;
+using Domain.WelcomeContext.Mappers;
+
 namespace RandomWelcome
 {
     public class Program
@@ -18,6 +21,8 @@ namespace RandomWelcome
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddAutoMapper(typeof(WelcomeMapper));
 
             builder.Logging.AddConsole();
 

@@ -1,7 +1,7 @@
-using Domain.Model;
-using Domain.Service;
-using Domain.Service.Interface;
 using Domain.Util;
+using Domain.WelcomeContext.Interface;
+using Domain.WelcomeContext.Model;
+using Domain.WelcomeContext.Service;
 using Microsoft.Extensions.Logging;
 using Moq;
 
@@ -20,7 +20,9 @@ namespace Test
         }
 
         [Fact]
+        [Trait("Categoria", nameof(IWelcomeService))]
         [Trait(nameof(IWelcomeService.GetRandomWelcomeMessage), "Sucesso")]
+        [Trait("Descrição", "Obtém os dados de boas vindas aleatória")]
         public void Get_Random_Welcome_Message_Sucesso()
         {
             var result = 
@@ -31,7 +33,9 @@ namespace Test
         }
 
         [Fact]
+        [Trait("Categoria", nameof(IWelcomeService))]
         [Trait(nameof(IWelcomeService.GetRandomWelcomeMessage), "Sucesso")]
+        [Trait("Descrição", "Obtém os dados de boas vindas aleatória")]
         public void Get_Random_Welcome_Message_Service_Sucesso()
         {
             var result = 

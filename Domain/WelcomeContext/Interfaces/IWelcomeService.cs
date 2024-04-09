@@ -1,6 +1,6 @@
-﻿using Domain.Model;
+﻿using Domain.WelcomeContext.Model;
 
-namespace Domain.Service.Interface
+namespace Domain.WelcomeContext.Interface
 {
     public interface IWelcomeService
     {

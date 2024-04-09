@@ -1,5 +1,7 @@
-﻿using Domain.Model;
-using Domain.Service.Interface;
+﻿using AutoMapper;
+using Domain.WelcomeContext.Dto;
+using Domain.WelcomeContext.Interface;
+using Domain.WelcomeContext.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace RandomWelcome.Controllers
@@ -8,18 +10,24 @@ namespace RandomWelcome.Controllers
     [Route("[controller]")]
     public class WelcomeController : ControllerBase
     {
+        private readonly IMapper _mapper;
         private readonly IWelcomeService _welcomeService;
 
-        public WelcomeController(IWelcomeService welcomeService)
+        public WelcomeController(
+            IMapper mapper, 
+            IWelcomeService welcomeService)
         {
-            _welcomeService = welcomeService 
+            _mapper = mapper 
+                ?? throw new ArgumentNullException(nameof(mapper));
+
+            _welcomeService = welcomeService
                 ?? throw new ArgumentNullException(nameof(welcomeService));
         }
 
         [HttpGet("/Random")]
-        [ProducesResponseType<Welcome>(StatusCodes.Status200OK)]
-        [ProducesResponseType<Error>(StatusCodes.Status400BadRequest)]
-        public ActionResult<Welcome> GetRandomWelcome()
+        [ProducesResponseType<WelcomeDto>(StatusCodes.Status200OK)]
+        [ProducesResponseType<ErrorDto>(StatusCodes.Status400BadRequest)]
+        public ActionResult<WelcomeDto> GetRandomWelcome()
         {
             var message = 
                 _welcomeService.GetRandomWelcomeMessage();
@@ -27,10 +35,10 @@ namespace RandomWelcome.Controllers
             if (message == null)
             {
                 return new BadRequestObjectResult(
-                    new Error { Message = "" });
+                    new ErrorDto { Message = "" });
             }
 
-            return message;
+            return _mapper.Map<WelcomeDto>(message);
         }
     }
 }

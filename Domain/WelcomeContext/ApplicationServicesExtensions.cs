@@ -1,7 +1,8 @@
-﻿using Domain.Service;
-using Domain.Service.Interface;
+﻿using Domain.WelcomeContext.Interface;
+using Domain.WelcomeContext.Service;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace Domain.WelcomeContext
 {
     public static class ApplicationServicesExtensions
     {
