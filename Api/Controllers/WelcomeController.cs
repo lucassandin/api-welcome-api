@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using Domain.WelcomeContext.Dto;
 using Domain.WelcomeContext.Interface;
-using Domain.WelcomeContext.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace RandomWelcome.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class WelcomeController : ControllerBase
     {
         private readonly IMapper _mapper;
@@ -24,7 +23,7 @@ namespace RandomWelcome.Controllers
                 ?? throw new ArgumentNullException(nameof(welcomeService));
         }
 
-        [HttpGet("/Random")]
+        [HttpGet("/[controller]/Random")]
         [ProducesResponseType<WelcomeDto>(StatusCodes.Status200OK)]
         [ProducesResponseType<ErrorDto>(StatusCodes.Status400BadRequest)]
         public ActionResult<WelcomeDto> GetRandomWelcome()

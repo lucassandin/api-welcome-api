@@ -1,5 +1,6 @@
 using Domain.WelcomeContext;
 using Domain.WelcomeContext.Mappers;
+using Microsoft.OpenApi.Models;
 
 namespace RandomWelcome
 {
@@ -20,7 +21,16 @@ namespace RandomWelcome
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(option =>
+            {
+                option.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Welcome API",
+                    Description = "API retorna uma mensagem de boas vindas aleatória",
+                });
+            });
+
 
             builder.Services.AddAutoMapper(typeof(WelcomeMapper));
 
