@@ -27,7 +27,7 @@ namespace RandomWelcome
                 {
                     Version = "v1",
                     Title = "Welcome API",
-                    Description = "API retorna uma mensagem de boas vindas aleatória",
+                    Description = "API retorna uma mensagem de boas vindas aleatória.",
                 });
             });
 
