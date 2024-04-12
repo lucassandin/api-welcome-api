@@ -3,32 +3,36 @@ using Domain.WelcomeContext.Dto;
 using Domain.WelcomeContext.Interface;
 using Microsoft.AspNetCore.Mvc;
 
-namespace RandomWelcome.Controllers
+namespace Api.Controllers.v1
 {
     [ApiController]
-    [Route("[controller]/[action]")]
+    [Route("api/v1/welcome")]
     public class WelcomeController : ControllerBase
     {
         private readonly IMapper _mapper;
         private readonly IWelcomeService _welcomeService;
 
         public WelcomeController(
-            IMapper mapper, 
+            IMapper mapper,
             IWelcomeService welcomeService)
         {
-            _mapper = mapper 
+            _mapper = mapper
                 ?? throw new ArgumentNullException(nameof(mapper));
 
             _welcomeService = welcomeService
                 ?? throw new ArgumentNullException(nameof(welcomeService));
         }
 
-        [HttpGet("/[controller]/Random")]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("random")]
         [ProducesResponseType<WelcomeDto>(StatusCodes.Status200OK)]
         [ProducesResponseType<ErrorDto>(StatusCodes.Status400BadRequest)]
         public ActionResult<WelcomeDto> GetRandomWelcome()
         {
-            var message = 
+            var message =
                 _welcomeService.GetRandomWelcomeMessage();
 
             if (message == null)
