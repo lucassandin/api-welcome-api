@@ -24,7 +24,7 @@ namespace Api.Controllers.v1
         }
 
         /// <summary>
-        /// 
+        /// Get a random welcome message
         /// </summary>
         /// <returns></returns>
         [HttpGet("random")]
