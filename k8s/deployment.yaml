@@ -1,0 +1,82 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: backend
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: welcome-api-configmap
+  namespace: backend
+data:
+  ASPNETCORE_HTTP_PORTS: "5001"
+  ASPNETCORE_ENVIRONMENT: Production
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcome-api
+  namespace: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: welcome-api
+  template:
+    metadata:
+      labels:
+        app: welcome-api
+    spec:
+      containers:
+        - name: welcome-api
+          image: lucassandin/welcome-api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5001
+          env:
+            - name: ASPNETCORE_HTTP_PORTS
+              valueFrom:
+                configMapKeyRef:
+                  name: welcome-api-configmap
+                  key: ASPNETCORE_HTTP_PORTS
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: welcome-api-configmap
+                  key: ASPNETCORE_ENVIRONMENT
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: welcome-api-service
+  namespace: backend
+spec:
+  selector:
+    app: welcome-api
+  ports:
+    - port: 80
+      targetPort: 5001
+  type: ClusterIP
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-api-host
+  namespace: backend
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: api.34.132.179.208.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: welcome-api-service
+                port:
+                  number: 80
