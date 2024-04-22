@@ -86,16 +86,15 @@ kind: Ingress
 metadata:
   name: ingress-api-swagger
   namespace: backend
-
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    kubernetes.io/ingress.global-static-ip-name: "web-static-ip"
 spec:
+  ingressClassName: nginx
   rules:
     - http:
         paths:
-          - path: /swaggerui/*
+          - path: /swagger/*
+            pathType: Prefix
             backend:
-              serviceName: api-swagger
-              servicePort: 80
+              service:
+                name: welcome-api-swagger
+                port:
+                  number: 80
