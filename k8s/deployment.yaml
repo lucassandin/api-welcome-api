@@ -80,21 +80,3 @@ spec:
                 name: welcome-api-service
                 port:
                   number: 80
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: ingress-api-swagger
-  namespace: backend
-spec:
-  ingressClassName: nginx
-  rules:
-    - http:
-        paths:
-          - path: /swagger/*
-            pathType: Prefix
-            backend:
-              service:
-                name: welcome-api-swagger
-                port:
-                  number: 80
