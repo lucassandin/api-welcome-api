@@ -54,4 +54,4 @@ jobs:
         with:
           images: lucassandin/welcome-api:${{github.run_number}}
           manifests: ./k8s/deployment.yaml
-          namespace: ${{secrets.GOOGLE_PROJECT_NAMESPACE}}
+          namespace: ${{secrets.GCLOUD_PROJECT_NAMESPACE}}
