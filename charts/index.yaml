@@ -3,7 +3,17 @@ entries:
   welcome-api:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-05-02T14:02:37.036415387Z"
+    created: "2024-05-02T14:15:01.007122741Z"
+    description: A Helm chart for Kubernetes
+    digest: dcc10a4beb06cf24da404a2a41ab6e46dabccda22f9c94fa17da1b5043dd61ca
+    name: welcome-api
+    type: application
+    urls:
+    - https://lucassandin.github.io/api.welcome.github.io/charts/welcome-api-v7.tgz
+    version: v7
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-05-02T14:15:01.005788203Z"
     description: A Helm chart for Kubernetes
     digest: 8c8143eedcc3a36ffbb976c84ff1d8cadc5ca501106f209e29ccaa962e840ab1
     name: welcome-api
@@ -13,7 +23,7 @@ entries:
     version: v6
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-05-02T14:02:37.035953478Z"
+    created: "2024-05-02T14:15:01.005342949Z"
     description: A Helm chart for Kubernetes
     digest: 6b3e55299b14239a0c1b7e360a78ea8927fcae501ea95e05114a29ca6e13ee22
     name: welcome-api
@@ -23,7 +33,7 @@ entries:
     version: v3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-05-02T14:02:37.035586456Z"
+    created: "2024-05-02T14:15:01.004987352Z"
     description: A Helm chart for Kubernetes
     digest: df28b3bec4357692c64b4a5bc3067a75afe8fc27c74e9e5f5cf3f7f47b12d3cc
     name: welcome-api
@@ -33,7 +43,7 @@ entries:
     version: v2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-05-02T14:02:37.035074865Z"
+    created: "2024-05-02T14:15:01.004686308Z"
     description: A Helm chart for Kubernetes
     digest: a8417643017d38396a85e07a9639b92c351e81087cd9fc8d463af6e786e44c29
     name: welcome-api
@@ -41,4 +51,4 @@ entries:
     urls:
     - https://lucassandin.github.io/api.welcome.github.io/charts/welcome-api-0.1.0.tgz
     version: 0.1.0
-generated: "2024-05-02T14:02:37.034630749Z"
+generated: "2024-05-02T14:15:01.004052089Z"
