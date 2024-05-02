@@ -1,64 +1,85 @@
 # Welcome API
 
-Bem-vindo à Welcome API! Esta API foi desenvolvida em .NET 8 e possui o objetivo de fornecer um único endpoint para retornar uma mensagem aleatória de boas-vindas.
+Welcome to the Welcome API! This API was developed in .NET 8 and aims to provide a single endpoint to return a random welcome message.
 
-## Funcionalidades
+## Features
 
-- **Welcome Endpoint:** O endpoint `/welcome` retorna uma mensagem aleatória de boas-vindas.
+- **Welcome Endpoint:** The `/welcome/random` endpoint returns a random welcome message.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
-- **Linguagem de Programação:** C# (.NET 8)
+- **Programming Language:** C# (.NET 8)
 - **Framework:** .NET 8
-- **Padrão de Arquitetura:** DDD (Domain-Driven Design)
-- **Princípios SOLID:** Aplicados
-- **Testes Unitários:** Implementados com xUnit
-- **Injeção de Dependência:** Utilizada para a gestão de dependências
-- **Logging:** Implementado para registrar informações relevantes
-- **Swagger:** Documentação automática da API
+- **Architecture Pattern:** DDD (Domain-Driven Design)
+- **SOLID Principles:** Applied
+- **Unit Tests:** Implemented with xUnit
+- **Dependency Injection:** Used for dependency management
+- **Logging:** Implemented to log relevant information
+- **Swagger:** Automatic API documentation
 
-## Configuração do Projeto
+## Project Setup
 
-1. **Clone o Repositório:** `git clone https://github.com/seu-usuario/welcome-api.git`
-2. **Acesse o Diretório:** `cd welcome-api`
-3. **Restaure as Dependências:** `dotnet restore`
-4. **Execute o Projeto:** `dotnet run`
-5. **Acesse a API:** Abra o navegador e acesse `https://localhost:5001/welcome`
+1. **Clone the Repository:** `git clone git@github.com:lucassandin/api.welcome.github.io.git`
+2. **Access the Directory:** `cd api.welcome.github.io`
+3. **Restore Dependencies:** `dotnet restore`
+4. **Run the Project:** `dotnet run`
+5. **Access the API:** Open your browser and access `https://localhost:5001/swagger/index.html`
 
-## Como Usar
+## How to Use
 
-Para usar a API, basta acessar o endpoint `/welcome`. Você receberá uma mensagem de boas-vindas aleatória.
+To use the API, simply access the `/swagger/index.html` endpoint. You will receive a random welcome message.
 
-Exemplo de uso:
+Example usage:
 
 ```http
-GET https://localhost:5001/welcome
+GET https://localhost:5001/swagger/index.html
 ```
 
 Resposta:
 
 ```json
 {
-  "message": "Bem-vindo! Esperamos que tenha uma excelente experiência com nossa API."
+  "message": "Welcome! We hope you have an excellent experience with our API."
 }
 ```
 
-## Testes
+## Testing
 
-A API possui testes unitários implementados com xUnit. Para executar os testes, utilize o comando:
+The API has unit tests implemented with xUnit. To run the tests, use the command:
 
 ```bash
 dotnet test
 ```
 
-## Contribuição
+## Usage HELM
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+[Helm](https://helm.sh) must be installed to use the charts. Please refer to
+Helm's [documentation](https://helm.sh/docs) to get started.
+
+Once Helm has been set up correctly, add the repo as follows:
+
+helm repo add welcome-api https://github.com/lucassandin/api.welcome.github.io/charts
+
+If you had already added this repo earlier, run `helm repo update` to retrieve
+the latest versions of the packages. You can then run `helm search repo
+welcome-api` to see the charts.
+
+To install the welcome-api chart:
+
+    helm install welcome-api welcome-api/welcome-api
+
+To uninstall the chart:
+
+    helm delete welcome-api
+
+## Contribution
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
 
 ## Licença
 
-Este projeto está licenciado sob a [MIT License](https://github.com/seu-usuario/welcome-api/blob/main/LICENSE).
+This project is licensed under the [MIT License](https://github.com/lucassandin/api.welcome.github.io/blob/main/LICENSE).
 
 ---
 
-Se tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato! 😊
+If you have any questions or suggestions, feel free to contact us! 😊

@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  welcome-api:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-04-26T15:58:12.9536905-03:00"
+    description: A Helm chart for Kubernetes
+    digest: 1cf2ba6fac34d30fdaa299b153ac78362f6e8ef39d8e2415e9b053824f418c21
+    name: welcome-api
+    type: application
+    urls:
+    - https://lucassandin.github.io/welcome-api.github.io/charts/welcome-api-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-04-26T15:58:12.9531908-03:00"

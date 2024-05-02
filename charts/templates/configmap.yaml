@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.application.name }}-configmap
+  namespace: {{ .Values.application.namespace }}
+data:
+  ASPNETCORE_HTTP_PORTS: "{{ $.Values.application.configMap.data.ASPNETCORE_HTTP_PORTS }}"
+  ASPNETCORE_ENVIRONMENT: {{ .Values.application.configMap.data.ASPNETCORE_ENVIRONMENT }}

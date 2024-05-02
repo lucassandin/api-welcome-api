@@ -1,0 +1,38 @@
+application:
+  name: welcome-api
+  namespace: backend
+  app: welcome-api
+  configMap:
+    data:
+      ASPNETCORE_HTTP_PORTS: "5001"
+      ASPNETCORE_ENVIRONMENT: Production
+  deployment: 
+    containers:
+      - name: welcome-api
+        image: lucassandin/welcome-api:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 5001
+        env:
+          - name: ASPNETCORE_HTTP_PORTS
+            valueFrom:
+              configMapKeyRef:
+                name: welcome-api-configmap
+                key: ASPNETCORE_HTTP_PORTS
+          - name: ASPNETCORE_ENVIRONMENT
+            valueFrom:
+              configMapKeyRef:
+                name: welcome-api-configmap
+                key: ASPNETCORE_ENVIRONMENT
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 5001
+  ingress:
+    ingressClassName: nginx
+    rules:
+      host: api.34.67.168.100.nip.io
+      path: /
+      pathType: Prefix
+      port:
+        number: 80
