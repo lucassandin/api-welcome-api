@@ -86,9 +86,14 @@ jobs:
           cluster_name: ${{secrets.GCLOUD_CLUSTER_NAME}}
           location: ${{secrets.GCLOUD_CLUSTER_ZONE}}
 
-      - name: Deploy to Kubernetes cluster
-        uses: Azure/k8s-deploy@v4.9
-        with:
-          images: lucassandin/welcome-api:${{github.run_number}}
-          manifests: ./k8s/deployment.yaml
-          namespace: ${{secrets.GCLOUD_PROJECT_NAMESPACE}}
+      - name: Install helm
+        uses: Azure/setup-helm@v3
+        with: 
+          version: latest
+          token: ${{ secrets.TOKEN_GITHUB }}
+
+      - name: Deploy
+        run: |
+          helm repo add welcome-api https://lucassandin.github.io/api.welcome.github.io/charts
+          helm repo update 
+          helm upgrade --install welcome-api welcome-api/welcome-api
